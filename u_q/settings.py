@@ -22,9 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!1g%$s*6s7^0873aw(uop13!54$z4io@p%a@-q645a-1^(uk^5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['u-q.herokuapp.com']
 
 # Application definition
 
@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic', # custom - whitenoise static file handling
     'django.contrib.staticfiles',
 
     # custom apps
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', # custom - whitenoise static file handling
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,7 +129,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Dhaka'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -138,8 +140,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATICFILES_DIRS = [Path(BASE_DIR).joinpath("static")]
-#STATIC_ROOT = Path(BASE_DIR).joinpath("static")
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' # custom
+STATIC_ROOT = BASE_DIR / "static"
 STATIC_URL  = '/static/'
 
 # Default primary key field type
