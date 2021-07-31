@@ -6,10 +6,11 @@ body{
 }
 
 #copy_to_clipboard{
-	width:2.5vw;
+	background: transparent;
 	background-image: url('/static/images/copy_to_clipboard_white.png'); 
 	background-size: 100% 100%; 
 	background-repeat: no-repeat;
+	transition: background-image 0.5s box-shadow 0.5s;
 }
 
 #copy_to_clipboard:hover{
@@ -18,24 +19,20 @@ body{
  } 
 
 #original_url{
+	background: transparent;
 	color: black;
+}
+
+#shortened_url{
+	background: transparent;
 }
 
 #form_url_submit{
 	color: black;
-	transition: color 0.25s;
+	transition: text-shadow 0.5s box-shadow 0.5s;
 }
 
 #form_url_submit:hover{
-	animation: color-change-submit 750ms infinite linear;
-	color: white;
-}
-
-@keyframes color-change-submit{
-	0%   {background: linear-gradient(to bottom right, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800);}
-	20%  {background: linear-gradient(to bottom right, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900);}
-	40%  {background: linear-gradient(to bottom right, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800);}
-	60%  {background: linear-gradient(to bottom right, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900);}
-	80%  {background: linear-gradient(to bottom right, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800);}
-	100% {background: linear-gradient(to bottom right, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900, #e6b800, #009900);}
+	box-shadow: 0 0 2px 2px black;
+	text-shadow: 0 0 2px black;
 }

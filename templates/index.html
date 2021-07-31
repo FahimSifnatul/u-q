@@ -41,23 +41,23 @@
       
       <!-- QR code -->
       <div class="col-sm d-flex flex-wrap justify-content-center">
-        <img id="qrcode" class="rounded" width="300" height="300">
+        <img id="qrcode" class="rounded-lg" width="300" height="300">
       </div>
 
       <!-- URL form -->
       <div class="col-sm d-flex flex-wrap justify-content-center align-content-center" style="padding-top: 2.5vh;">
         <form id="form_url" name="form_url" method="POST"> {% csrf_token %}
           <div class="form-group">
-            <input id="original_url" class="form-control" style="width:50vw;" type="url" name="original_url" placeholder="Enter URL to shorten" required>
+            <input id="original_url" class="form-control shadow-none border-dark border-right-0 border-top-0 border-left-0" style="width:50vw;" type="url" name="original_url" placeholder="Enter URL to shorten" required>
           </div>
           <div class="form-group">
-            <div class="form-inline">
-              <input id="shortened_url" class="form-control" style="width:47.5vw;" type="url" name="shortened_url" placeholder="Shortened URL" value="" readonly>
-              <div id="copy_to_clipboard" class="form-control"></div>
+            <div class="input-group">
+              <input id="shortened_url" class="form-control shadow-none border-dark border-right-0 border-top-0 border-left-0" style="width:47.5vw;" type="url" name="shortened_url" placeholder="Shortened URL" value="" readonly>
+              <span id="copy_to_clipboard" class="form-control shadow-none btn border-0"></span>
             </div>
           </div>
           <div class="form-group">
-            <input id="form_url_submit" class="form-control" type="submit" name="form_url_submit" value="submit">
+            <input id="form_url_submit" class="btn border-dark" type="submit" name="form_url_submit" value="submit">
           </div>
        </form>
       </div>
