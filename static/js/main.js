@@ -1,17 +1,27 @@
+// custom delay function
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 $(document).ready(function(){
+	// initial QRcode
 	$('#qrcode').ClassyQR({
 	    type: 'url',
     	url: 'https://www.qrcode.com'
 	});
 
-	$("#copy_to_clipboard").click(function(){
+	$("#copy_to_clipboard").click(async function(){
 		const value = $("#shortened_url").attr("value");
 		if(value != "")
 		{
 			$("#shortened_url").select();
 			document.execCommand("copy");
-			alert("Shortened URL copied");
+			
+			$('#copy_to_clipboard').popover("show");
+			$('#copy_to_clipboard').css("background-image", "url('/static/images/copy_to_clipboard_black.png')");
+			await delay(3000);
+			$('#copy_to_clipboard').popover("hide");
+			$('#copy_to_clipboard').css("background-image", "url('/static/images/copy_to_clipboard_white.png')");
 		}
 	});
 
@@ -35,4 +45,4 @@ $(document).ready(function(){
 			}
 		});
 	});
-})
+});

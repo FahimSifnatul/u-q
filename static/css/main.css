@@ -13,11 +13,6 @@ body{
 	transition: background-image 0.5s box-shadow 0.5s;
 }
 
-#copy_to_clipboard:hover{
-    background-image: url('/static/images/copy_to_clipboard_black.png');
-    box-shadow: 0 0 2px 2px black;
- } 
-
 #original_url{
 	background: transparent;
 	color: black;
